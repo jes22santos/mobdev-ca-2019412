@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';	
-import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';	
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
  
 @Component({
   selector: 'app-characters',
@@ -9,13 +10,20 @@ import { NavController } from '@ionic/angular';
 })
 export class CharactersPage implements OnInit {
 
-  constructor(private navController: NavController, private router: Router) { }
+  characters: Observable<any>;
+ 
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
+      this.characters = this.http.get('https://breakingbadapi.com/api/characters');
+      this.characters.subscribe(data => {
+      console.log('my data: ', data);
+    });
   }
 
-  openDetails() {
-    
-    this.router.navigateByUrl(`/tabs/characters/51`);
+  openDetails(character) {
+    let split = character.url.split('/');
+    let characterId = split[split.length-2];
+    this.router.navigateByUrl(`/tabs/characters/${characterId}`);
   }
 }

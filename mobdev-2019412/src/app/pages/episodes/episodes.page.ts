@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-episodes',
@@ -9,13 +10,20 @@ import { NavController } from '@ionic/angular';
 })
 export class EpisodesPage implements OnInit {
 
-  constructor(private navController: NavController, private router: Router) { }
+  episodes: Observable<any>;
+ 
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
+      this.episodes = this.http.get('https://breakingbadapi.com/api/episodes');
+      this.episodes.subscribe(data => {
+      console.log('my data: ', data);
+    });
   }
 
-  openDetails() {
-    
-    this.router.navigateByUrl(`/tabs/episodes/14`);
+  openDetails(episode) {
+    let split = episode.url.split('/');
+    let episodeId = split[split.length-2];
+    this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
   }
 }
