@@ -16,9 +16,9 @@ export class CharactersPage implements OnInit {
 
   ngOnInit() {
       this.characters = this.http.get('https://breakingbadapi.com/api/characters');
-      this.characters.subscribe(data => {
-      console.log('my data: ', data);
-    });
+      //this.characters.subscribe(data => {
+      //console.log('my data: ', data);
+    //});
   }
 
   openDetails(character) {

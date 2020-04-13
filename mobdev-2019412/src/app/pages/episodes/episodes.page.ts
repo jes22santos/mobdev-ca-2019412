@@ -16,9 +16,9 @@ export class EpisodesPage implements OnInit {
 
   ngOnInit() {
       this.episodes = this.http.get('https://breakingbadapi.com/api/episodes');
-      this.episodes.subscribe(data => {
-      console.log('my data: ', data);
-    });
+      //this.episodes.subscribe(dataE => {
+      //console.log('my data: ', dataE);
+    //});
   }
 
   openDetails(episode) {
