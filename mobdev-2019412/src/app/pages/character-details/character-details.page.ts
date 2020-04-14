@@ -10,7 +10,7 @@ import { ApiService } from './../../services/api.service';
 export class CharacterDetailsPage implements OnInit {
 
   character: any;
-  characterId;
+  characterId = null;
  
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
  
