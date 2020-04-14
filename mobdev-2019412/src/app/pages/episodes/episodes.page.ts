@@ -16,14 +16,11 @@ export class EpisodesPage implements OnInit {
 
   ngOnInit() {
       this.episodes = this.http.get('https://breakingbadapi.com/api/episodes');
-      //this.episodes.subscribe(dataE => {
-      //console.log('my data: ', dataE);
-    //});
+      
   }
 
   openDetails(episode) {
-    let split = episode.url.split('/');
-    let episodeId = split[split.length-2];
-    this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+    
+    this.router.navigateByUrl(`/tabs/episodes/${episode.episode_id}`);
   }
 }

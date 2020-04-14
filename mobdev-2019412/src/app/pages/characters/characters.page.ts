@@ -16,14 +16,11 @@ export class CharactersPage implements OnInit {
 
   ngOnInit() {
       this.characters = this.http.get('https://breakingbadapi.com/api/characters');
-      //this.characters.subscribe(data => {
-      //console.log('my data: ', data);
-    //});
+      
   }
 
   openDetails(character) {
-    let split = character.url.split('/');
-    let characterId = split[split.length-2];
-    this.router.navigateByUrl(`/tabs/characters/${characterId}`);
+    
+    this.router.navigateByUrl(`/tabs/characters/${character.character_id}`);
   }
 }
