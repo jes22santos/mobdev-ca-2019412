@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-episodes',
@@ -12,15 +13,16 @@ export class EpisodesPage implements OnInit {
 
   episodes: Observable<any>;
  
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-      this.episodes = this.http.get('https://breakingbadapi.com/api/episodes');
+      this.episodes = this.api.getEpisodes();
       
   }
 
   openDetails(episode) {
     
-    this.router.navigateByUrl(`/tabs/episodes/${episode.episode_id}`);
+    let episodeId = episode.episode_Id;
+    this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
   }
 }

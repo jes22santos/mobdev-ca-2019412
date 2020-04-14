@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';	
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { ApiService } from './../../services/api.service';
 @Component({
   selector: 'app-character-details',
   templateUrl: './character-details.page.html',
@@ -10,15 +10,16 @@ import { HttpClient } from '@angular/common/http';
 export class CharacterDetailsPage implements OnInit {
 
   character: any;
+  characterId;
  
-  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
  
 
-  ngOnInit() {
-      let id = this.activatedRoute.snapshot.paramMap.get('id');
-      this.http.get(`https://breakingbadapi.com/api/characters/${id}`).subscribe(res => {
-      this.character = res;
-    });
+ ngOnInit() {
+       this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
+       this.api.getCharacter(this.characterId).subscribe(res => {
+       this.character = res;
+       });
   }
 
 }

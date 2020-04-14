@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaulthref="/tabs/episodes"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ episode?.title }}</ion-title>
+    <ion-title> </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,6 +14,11 @@
 <ion-card *ngIf="episode">
   <ion-card-content>
     {{ episode.title }}
+    {{ episode.season }}
+    {{ episode.episode }}
+    {{ episode.air_date }}
+    {{ episode.characters }}
+
   </ion-card-content>
 </ion-card>
 
