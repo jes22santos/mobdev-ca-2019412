@@ -1,4 +1,5 @@
 import { ApiService } from './../../services/api.service';
+import { LikeService } from './../../services/like.service';
 import { Component, OnInit } from '@angular/core';	
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,9 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 export class EpisodeDetailsPage implements OnInit {
 
   episode: any;
+  isLike = false;
   episodeId = null;
  
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private likeService: LikeService) { }
 
   ngOnInit() {
       
@@ -22,6 +24,22 @@ export class EpisodeDetailsPage implements OnInit {
       this.episode = res[0];
       console.log(JSON.stringify(this.episode.episode_id));
        });
+
+       this.likeService.isLike(this.episodeId).then(isLik => {
+      this.isLike = isLik;
+    });
+  }
+
+  likeEpisode() {
+    this.likeService.likeEpisode(this.episodeId).then(() => {
+      this.isLike = true;
+    });
+  }
+ 
+  dislikeEpisode() {
+    this.likeService.dislikeEpisode(this.episodeId).then(() => {
+      this.isLike = false;
+    });
   }
 
 }
