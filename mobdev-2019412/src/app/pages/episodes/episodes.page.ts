@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';	
+import { Router } from '@angular/router';	
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
@@ -16,13 +16,15 @@ export class EpisodesPage implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
+
       this.episodes = this.api.getEpisodes();
       
   }
 
   openDetails(episode) {
     
-    let episodeId = episode.episode_Id;
+    let episodeId = episode.episode_id;
     this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+    console.log(episodeId);
   }
 }
