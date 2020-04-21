@@ -20,7 +20,8 @@ export class QuotesPage implements OnInit {
   }
 
   openDetails(quote) {
-    
+    let quoteId = quote.quote_id;
+    this.router.navigateByUrl(`/tabs/characters/${quoteId}`);
     
   }
 
