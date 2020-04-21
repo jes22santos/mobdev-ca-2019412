@@ -13,8 +13,11 @@ export class ApiService {
       return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/characters.json`);
     }
  
+    //getCharacter(id) {
+      //return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/characters.json/?${id}`);
+    //}
     getCharacter(id) {
-      return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/characters.json/?${id}`);
+      return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`);
     }
 
  
@@ -22,8 +25,12 @@ export class ApiService {
       return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/episodes.json`);
     }
  
+    //getEpisode(id) {
+      //return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/episodes.json/?${id}`);
+    //}
+
     getEpisode(id) {
-      return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/episodes.json/?${id}`);
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
     }
   
     getQuotes() {
