@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../services/api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-death-count',
@@ -8,9 +9,19 @@ import { ApiService } from './../../services/api.service';
 })
 export class DeathCountPage implements OnInit {
 
-  constructor() { }
+    deaths: Observable<any>;
+    name: string = '';
+    
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+  }
+
+  onSearchChange(){
+      
+      this.deaths = this.api.searchDeath(this.name); 
+      console.log(this.name);
   }
 
 }
