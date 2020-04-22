@@ -10,12 +10,12 @@
     <ion-searchbar [(ngModel)]="name" placeholder ="Search Death" (ionChange)="onSearchChange($event)"></ion-searchbar>
     
     <ion-item button *ngFor="let death of (deaths | async)" >
-      <ion-avatar slot="start">
-        
-      </ion-avatar>
+      
  
       <ion-label text-wrap>
+ 
         <h1>{{ death.name }}</h1>
+        <ion-icon name="skull" slot="end"></ion-icon>
         Number of Deaths: {{death.deathCount}}
       </ion-label>
     </ion-item>
