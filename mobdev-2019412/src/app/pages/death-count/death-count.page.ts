@@ -18,8 +18,9 @@ export class DeathCountPage implements OnInit {
   ngOnInit() {
   }
 
-  onSearchChange(){
+  onSearchChange(event){
       
+      this.name = event.target.value;;
       this.deaths = this.api.searchDeath(this.name); 
       console.log(this.name);
   }
