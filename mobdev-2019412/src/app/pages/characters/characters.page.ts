@@ -12,7 +12,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class CharactersPage implements OnInit {
 
-  characters: any;
+  characters = [];
   offset = 0;
  
  
@@ -24,19 +24,30 @@ export class CharactersPage implements OnInit {
       
   }
 
-  loadCharacters(loadMore = false, event?){
+  loadCharacters(event?){
 
-    if (loadMore) {
-      this.offset += 10;
-    }
-
-     this.characters = this.api.getCharacters(this.offset);   
     
+     this.api.getCharacters(this.offset).subscribe(res =>{
+         
+         this.characters = this.characters.concat(res);
+         
+
+         if (event){
+             event.target.complete();
+         }
+     })   
+    
+  }
+
+  loadMoreCharacters(event){
+    
+    this.offset += 10;
+    this.loadCharacters(event);
   }
 
   openDetails(character) {
     let characterId = character.char_id;
     this.router.navigateByUrl(`/tabs/characters/${characterId}`);
-    console.log(characterId);
+    
   }
 }

@@ -11,7 +11,7 @@ export class ApiService {
  
   
    getCharacters(offset) {
-      return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=21&offset=${offset}`);
+      return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=10&offset=${offset}`);
     }
  
     //getCharacter(id) {
