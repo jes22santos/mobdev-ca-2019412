@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: 'app-characters',
@@ -11,14 +12,26 @@ import { ApiService } from '../../services/api.service';
 })
 export class CharactersPage implements OnInit {
 
-  characters: Observable<any>;
+  characters: any;
+  offset = 0;
+ 
  
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
       
-      this.characters = this.api.getCharacters();
+     this.loadCharacters();
       
+  }
+
+  loadCharacters(loadMore = false, event?){
+
+    if (loadMore) {
+      this.offset += 10;
+    }
+
+     this.characters = this.api.getCharacters(this.offset);   
+    
   }
 
   openDetails(character) {

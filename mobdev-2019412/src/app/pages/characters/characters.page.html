@@ -13,4 +13,8 @@
     </ion-item>
   </ion-list>
   
+  <ion-infinite-scroll (ionInfinite)="loadCharacters(true, $event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more character...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
