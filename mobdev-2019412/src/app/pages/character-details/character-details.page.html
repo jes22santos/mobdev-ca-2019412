@@ -1,43 +1,43 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-back-button defaulthref="/tabs/characters"></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ character?.name }}</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="success">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{ character?.name }}</ion-title>
+	</ion-toolbar>
 </ion-header>
 
-	
+
 <ion-content>
- 
-<ion-card *ngIf="character">
-  <ion-card-content>
-      <h1> {{ character.name }} </h1>
-    </ion-card-content>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      Date of Birthday: {{ character.birthday }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="hourglass" slot="start"></ion-icon>
-      Occupation: {{ character.occupation }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="film" slot="start"></ion-icon>
-      Appearance: {{ character.appearance }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="fitness" slot="start"></ion-icon>
-      Status: {{ character.status }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="star" slot="start"></ion-icon>
-      Nickname: {{ character.nickname }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="people" slot="start"></ion-icon>
-      Portrayed: {{ character.portrayed }}
-    </ion-item>
-</ion-card>
+
+	<ion-card *ngIf="character" class="character-card">
+		<ion-card-content>
+			<h1> {{ character.name }} </h1>
+		</ion-card-content>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="calendar" slot="start"></ion-icon>
+			Date of Birthday: {{ character.birthday }}
+		</ion-item>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="hourglass" slot="start"></ion-icon>
+			Occupation: {{ character.occupation }}
+		</ion-item>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="film" slot="start"></ion-icon>
+			Appearance: {{ character.appearance }}
+		</ion-item>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="fitness" slot="start"></ion-icon>
+			Status: {{ character.status }}
+		</ion-item>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="star" slot="start"></ion-icon>
+			Nickname: {{ character.nickname }}
+		</ion-item>
+		<ion-item class="character-info" lines="none">
+			<ion-icon name="people" slot="start"></ion-icon>
+			Portrayed: {{ character.portrayed }}
+		</ion-item>
+	</ion-card>
 
 </ion-content>

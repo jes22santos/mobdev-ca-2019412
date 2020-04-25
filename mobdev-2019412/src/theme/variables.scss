@@ -27,13 +27,13 @@
   --ion-color-tertiary-shade: #4854e0;
   --ion-color-tertiary-tint: #6370ff;
 
-  /** success **/
-  --ion-color-success: #2dd36f;
+  /** success set new color for success **/
+  --ion-color-success: #012c12;
   --ion-color-success-rgb: 45, 211, 111;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #28ba62;
-  --ion-color-success-tint: #42d77d;
+  --ion-color-success-shade: #0f7036;
+  --ion-color-success-tint: #0c5c2c;
 
   /** warning **/
   --ion-color-warning: #ffc409;
@@ -74,6 +74,30 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-background-color: var(--ion-color-dark);
+  --ion-text-color: #fff;
+  --ion-tab-bar-background: var(--ion-color-success);
+
+ /** set new style for these item (tab button / search Bar / Card / text / item**/
+
+  ion-tab-button {
+    --color-selected: var(--ion-color-light);
+  }
+  --ion-text-color-rgb: 255, 255, 255;
+  ion-searchbar {
+    
+    --ion-background-color: var(--ion-color-medium);
+    --ion-text-color: #fff;
+  }
+  ion-card {
+    --color: #fff;
+  }
+
+  ion-item {
+    --border-color: var(--ion-color-light);
+    --detail-push-color: var(--ion-color-light);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,7 +135,7 @@
     --ion-color-success-shade: #29c467;
     --ion-color-success-tint: #44e283;
 
-    --ion-color-warning: #ffd534;
+    --ion-color-warning: #ecbe04;
     --ion-color-warning-rgb: 255,213,52;
     --ion-color-warning-contrast: #000000;
     --ion-color-warning-contrast-rgb: 0,0,0;
