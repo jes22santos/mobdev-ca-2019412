@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class DeathCountPage implements OnInit {
 
-    deaths: Observable<any>;
-    name: string = '';
+    deaths: any;
+    searchname: string = '';
     
 
   constructor(private api: ApiService) { }
@@ -20,9 +20,13 @@ export class DeathCountPage implements OnInit {
 
   onSearchChange(event){
       
-      this.name = event.target.value;
-      this.deaths = this.api.searchDeath(this.name); 
-      
+      this.searchname = event.target.value;
+     
+      this.api.searchDeath(this.searchname).subscribe(data => {
+      this.deaths = data;
+      }, err => {
+      this.deaths = [];
+    });
   }
 
 }
