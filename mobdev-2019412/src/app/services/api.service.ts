@@ -20,8 +20,12 @@ export class ApiService {
     }
 
  
-    getEpisodes() {
+   /* getEpisodes() {
       return this.http.get(`https://8100-a6fa99a5-c714-4c49-8c2b-41e07a1984b6.ws-eu01.gitpod.io/assets/episodes.json`);
+    }*/
+
+    getEpisodes() {
+      return this.http.get('https://www.breakingbadapi.com/api/episodes');
     }
 
     getEpisode(id) {
