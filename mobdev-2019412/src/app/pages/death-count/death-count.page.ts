@@ -18,6 +18,7 @@ export class DeathCountPage implements OnInit {
   ngOnInit() {
   }
 
+  // method receive event from html, with the name to be searched, and bring the result found in the api
   onSearchChange(event){
       
       this.searchname = event.target.value;

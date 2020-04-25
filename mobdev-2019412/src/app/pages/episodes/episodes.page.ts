@@ -17,14 +17,16 @@ export class EpisodesPage implements OnInit {
 
   ngOnInit() {
 
+      // bring all episodes from api service
       this.episodes = this.api.getEpisodes();
       
   }
 
+  // method to open episode detail, passing the episode ID as parameter
   openDetails(episode) {
     
     let episodeId = episode.episode_id;
     this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
-    console.log(episodeId);
+    
   }
 }

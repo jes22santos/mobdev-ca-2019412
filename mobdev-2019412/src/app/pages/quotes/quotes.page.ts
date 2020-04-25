@@ -16,9 +16,11 @@ export class QuotesPage implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
+      //Bring all quotes from api services
       this.quotes = this.api.getQuotes();
   }
 
+  // open quote details, passing the quote ID as parameter
   openDetails(quote) {
     let quoteId = quote.quote_id;
     this.router.navigateByUrl(`/tabs/characters/${quoteId}`);

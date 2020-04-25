@@ -15,11 +15,13 @@ export class CharacterDetailsPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
  
   ngOnInit() {
+    // Getting ID from link of character page passed by method openDetails
     this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
- 
+    
+    //Bring information of character by ID
     this.api.getCharacter(this.characterId).subscribe(res => {
       this.character = res[0];
-      console.log(JSON.stringify(this.character.char_id));
+      
     });
 
   }

@@ -23,9 +23,8 @@ export class CharactersPage implements OnInit {
         this.loadCharacters();
 
     }
-
+    // method to load character with parameter optional, according the event in html page
     loadCharacters(event?) {
-
 
         this.api.getCharacters(this.offset).subscribe(res => {
 
@@ -44,7 +43,7 @@ export class CharactersPage implements OnInit {
         this.loadCharacters(event);
     }
 
-    // method to open character details
+    // method to open character details, passing the character ID as parameter
     openDetails(character) {
         let characterId = character.char_id;
         this.router.navigateByUrl(`/tabs/characters/${characterId}`);

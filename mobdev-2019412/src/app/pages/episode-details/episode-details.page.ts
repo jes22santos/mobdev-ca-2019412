@@ -18,24 +18,28 @@ export class EpisodeDetailsPage implements OnInit {
 
   ngOnInit() {
       
+    // Getting ID from link of episode page passed by method openDetails
       this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
- 
+
+    //Bring information of episode by ID
       this.api.getEpisode(this.episodeId).subscribe(res => {
       this.episode = res[0];
-      console.log(JSON.stringify(this.episode.episode_id));
+      
        });
-
+    // calling likeService to check actul status of the episode
        this.likeService.isLike(this.episodeId).then(isLik => {
-      this.isLike = isLik;
+       this.isLike = isLik;
     });
   }
 
+  // method to change status of episode as liked
   likeEpisode() {
     this.likeService.likeEpisode(this.episodeId).then(() => {
       this.isLike = true;
     });
   }
  
+  // method to change status of episode as disliked
   dislikeEpisode() {
     this.likeService.dislikeEpisode(this.episodeId).then(() => {
       this.isLike = false;

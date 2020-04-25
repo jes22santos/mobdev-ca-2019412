@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar [(ngModel)]="name" placeholder="Search Death" (ionChange)="onSearchChange($event)" ></ion-searchbar>
+	<ion-searchbar [(ngModel)]="searchname" placeholder="Search Death" (ionChange)="onSearchChange($event)" ></ion-searchbar>
 
 	<ion-item button *ngFor="let death of (deaths)">
 
