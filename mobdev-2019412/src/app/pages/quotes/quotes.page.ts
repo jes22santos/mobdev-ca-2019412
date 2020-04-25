@@ -17,14 +17,27 @@ export class QuotesPage implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-      //Bring all quotes from api services
-      this.quotes = this.api.getQuotes();
+      this.loadQuotes();
   }
 
+  loadQuotes(){
+
+    //Bring all quotes from api services
+      this.api.getQuotes().subscribe(res => {
+      this.quotes = res;
+      });
+  }
+ 
+  // Method to search quote by name of the author - Code based on https://devdactic.com/ionic-4-pokedex-search-scroll/ explanation
   searchQuote(event){
       
       this.author = event.target.value;
-     
+
+      if (this.author == '') {
+        this.loadQuotes();
+        return;
+      }
+
       this.api.getQuoteA(this.author).subscribe(data => {
       this.quotes = data;
       }, err => {
@@ -35,8 +48,7 @@ export class QuotesPage implements OnInit {
   // open quote details, passing the quote ID as parameter
   openDetails(quote) {
     let quoteId = quote.quote_id;
-    this.router.navigateByUrl(`/tabs/characters/${quoteId}`);
-    
+    this.router.navigateByUrl(`/tabs/quotes/${quoteId}`);
   }
 
 }

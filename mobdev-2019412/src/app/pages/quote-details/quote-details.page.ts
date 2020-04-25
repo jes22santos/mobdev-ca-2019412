@@ -19,7 +19,7 @@ export class QuoteDetailsPage implements OnInit {
         this.quoteId = this.activatedRoute.snapshot.paramMap.get('id');
         
         //Bring information of quote by ID
-        this.api.getCharacter(this.quoteId).subscribe(res => {
+        this.api.getQuote(this.quoteId).subscribe(res => {
             this.quote = res[0];
         });
     }

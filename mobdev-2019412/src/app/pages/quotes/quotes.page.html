@@ -5,11 +5,25 @@
 	</ion-toolbar>
 
 </ion-header>
-
 <ion-content>
     <ion-searchbar [(ngModel)]="author" placeholder="Search Quote by Author" (ionChange)="searchQuote($event)" ></ion-searchbar>
-	<ion-list>
-		<ion-item button detail lines="inset" *ngFor="let quote of (quotes | async)" (click)="openDetails(quote)">
+	<ion-list *ngIf="quotes.length == 0">
+    <ion-item *ngFor="let i of [1,2,3,4,5]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label class="ion-text-capitalize">
+        <h2>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+    <ion-list>
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes" (click)="openDetails(quote)">
 			{{ quote.quote }}
 		</ion-item>
 	</ion-list>
